@@ -4,13 +4,7 @@
   "module": "index.tsx",
   "scripts": {
     "dev": "bun --hot index.tsx",
-    "format": "prettier . --write",
-    "start": "NODE_ENV=production bun index.tsx",
-    "typecheck": "tsc"
-  },
-  "prettier": {
-    "singleQuote": true,
-    "trailingComma": "all"
+    "start": "NODE_ENV=production bun index.tsx"
   },
   "dependencies": {
     "@elysiajs/html": "^0.8.0",

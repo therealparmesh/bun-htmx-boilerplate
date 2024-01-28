@@ -7,7 +7,7 @@
     "noUnusedParameters": true,
     "strict": true,
     "module": "ESNext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "Bundler",
     "noEmit": true,
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,

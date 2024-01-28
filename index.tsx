@@ -2,7 +2,7 @@ import { Elysia, NotFoundError, type Static, t } from 'elysia';
 import { html } from '@elysiajs/html';
 
 const Todo = t.Object({
-  id: t.Numeric(),
+  id: t.String(),
   completed: t.Boolean(),
   content: t.String(),
 });
@@ -16,15 +16,11 @@ function Root({ children }: { children?: JSX.Element }) {
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Bun + HTMX</title>
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/@picocss/pico@1.5.11/css/pico.min.css"
-        />
+        <link rel="icon" href="data:," />
       </head>
       <body>
         {children}
         <script src="https://unpkg.com/htmx.org@1.9.10" />
-        <script src="https://unpkg.com/hyperscript.org@0.9.12" />
       </body>
     </html>
   );
@@ -51,19 +47,19 @@ new Elysia()
   .get('/', () => (
     <Root>
       <main class="container">
-        <header>
-          <h1>todos</h1>
-        </header>
+        <h1>todos</h1>
         <section>
           <form
             hx-post="/todos"
             hx-target="#todo-list-container"
-            _="on htmx:afterOnLoad set #new-todo-content.value to ''"
+            hx-disabled-elt="#new-todo-content"
+            hx-on:htmx-after-request="this.reset()"
           >
             <input
               id="new-todo-content"
               name="content"
               placeholder="What needs to be done?"
+              required
             />
           </form>
         </section>
@@ -82,7 +78,7 @@ new Elysia()
     '/todos',
     ({ body: { content } }) => {
       todos.push({
-        id: todos.length + 1,
+        id: String(todos.length + 1),
         completed: false,
         content,
       });
