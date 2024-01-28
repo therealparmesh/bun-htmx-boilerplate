@@ -1,0 +1,24 @@
+{
+  "name": "bun-htmx-boilerplate",
+  "type": "module",
+  "module": "index.tsx",
+  "scripts": {
+    "dev": "bun --hot index.tsx",
+    "format": "prettier . --write",
+    "start": "NODE_ENV=production bun index.tsx",
+    "typecheck": "tsc"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "dependencies": {
+    "@elysiajs/html": "^0.8.0",
+    "elysia": "^0.8.14"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.0.4",
+    "prettier": "^3.2.4",
+    "typescript": "^5.3.3"
+  }
+}
