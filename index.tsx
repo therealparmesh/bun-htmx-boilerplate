@@ -17,11 +17,9 @@ function Root({ children }: { children?: JSX.Element }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Bun + HTMX</title>
         <link rel="icon" href="data:," />
-      </head>
-      <body>
-        {children}
         <script src="https://unpkg.com/htmx.org@1.9.10" />
-      </body>
+      </head>
+      <body>{children}</body>
     </html>
   );
 }
@@ -33,11 +31,13 @@ function TodoItem({ id, completed, content }: Static<typeof Todo>) {
         hx-patch={`/todos/${id}`}
         hx-target={`#todo-${id}`}
         hx-swap="outerHTML"
+        hx-disabled-elt="this"
         type="checkbox"
+        id={`todo-completed-${id}`}
         name="completed"
         checked={completed}
       />
-      <label>{content}</label>
+      <label for={`todo-completed-${id}`}>{content}</label>
     </li>
   );
 }
@@ -46,7 +46,7 @@ new Elysia()
   .use(html())
   .get('/', () => (
     <Root>
-      <main class="container">
+      <main>
         <h1>todos</h1>
         <section>
           <form
