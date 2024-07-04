@@ -14,11 +14,11 @@
     "jsx": "react",
     "jsxFactory": "Html.createElement",
     "jsxFragmentFactory": "Html.Fragment",
-    "lib": ["ESNext", "DOM"],
+    "lib": ["DOM", "ESNext"],
     "target": "ESNext",
     "skipLibCheck": true,
     "moduleDetection": "force",
     "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-  },
+    "verbatimModuleSyntax": true
+  }
 }
