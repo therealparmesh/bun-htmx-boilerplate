@@ -1,5 +1,5 @@
-import { Elysia, NotFoundError, type Static, t } from 'elysia';
 import { html } from '@elysiajs/html';
+import { Elysia, NotFoundError, type Static, t } from 'elysia';
 
 const Todo = t.Object({
   id: t.String(),
@@ -19,7 +19,7 @@ function Root({ children }: { children?: JSX.Element }) {
         <link rel="icon" href="data:," />
         <script src="https://unpkg.com/htmx.org@2.0.0" />
       </head>
-      <body>{children}</body>
+      <body safe>{children}</body>
     </html>
   );
 }
@@ -37,7 +37,9 @@ function TodoItem({ id, completed, content }: Static<typeof Todo>) {
         name="completed"
         checked={completed}
       />
-      <label for={`todo-completed-${id}`}>{content}</label>
+      <label for={`todo-completed-${id}`} safe>
+        {content}
+      </label>
     </li>
   );
 }
