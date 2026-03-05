@@ -21,6 +21,7 @@
     "jsxImportSource": "@kitajs/html",
     "lib": ["ESNext"],
     "moduleDetection": "force",
+    "target": "ESNext",
     "skipLibCheck": true
   }
 }
