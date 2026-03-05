@@ -17,7 +17,7 @@ function Root({ children }: { children: JSX.Element }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Bun + HTMX</title>
         <link rel="icon" href="data:," />
-        <script src="https://unpkg.com/htmx.org@2.0.0" />
+        <script src="https://unpkg.com/htmx.org@2.0.8" />
       </head>
       <body>{children}</body>
     </html>
