@@ -9,7 +9,7 @@ const Todo = t.Object({
 
 const todos: Static<typeof Todo>[] = [];
 
-function Root({ children }: { children?: JSX.Element }) {
+function Root({ children }: { children: JSX.Element }) {
   return (
     <html lang="en">
       <head>
@@ -19,7 +19,7 @@ function Root({ children }: { children?: JSX.Element }) {
         <link rel="icon" href="data:," />
         <script src="https://unpkg.com/htmx.org@2.0.0" />
       </head>
-      <body safe>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
